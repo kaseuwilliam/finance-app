@@ -18,7 +18,6 @@ function calculatePaymentAmount(principal, interest_rate, numOfPayments) {
     const monthlyInterestRate = (interest_rate / 100) / 12;
     const paymentAmount = principal * (monthlyInterestRate * (1 + monthlyInterestRate) ** numOfPayments)/((1 + monthlyInterestRate) ** numOfPayments - 1) 
     return paymentAmount
-  }
 
   // console.log(calculatePaymentAmount(425000, 7.71, 360))
 // let monthlyPaymentAmount = calculatePaymentAmount(principal, interest_rate, numOfPayments)
