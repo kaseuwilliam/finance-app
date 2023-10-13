@@ -25,15 +25,22 @@ const Calculator = () => {
 
   return (
     <div>
+
+<section className="card">
+<label htmlFor="expression">Enter an expression:</label>
       <input
         type="text"
         value={input}
         onChange={handleInputChange}
         placeholder="Enter an expression"
       />
+      <div className="button-container">
       <button onClick={handleCalculate}>=</button>
       <button onClick={handleClear}>Clear</button>
-      <div>{result}</div>
+      </div>
+      <div className="result">Answer: {result}</div>
+
+  </section>
     </div>
   );
 };

@@ -1,0 +1,93 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+
+html {
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+    margin: 0;
+    padding: 0 .25rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card {
+    background: #f9f9f9;
+    border: 1px solid #c9c9c9;
+    padding: 1.25rem;
+    border-radius: 8px;
+    width: auto;
+  }
+
+button {
+display: flex;
+align-items: center;
+justify-content: center;
+align-self: start;
+background-color: #3e68ff;
+color: #fff;
+border-radius: 3px;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+padding: .25rem;
+min-width: 8ch;
+min-height: 44px;
+transition: 220ms all ease-in-out;
+cursor: pointer;
+font-size: 1.05rem;
+}
+
+button:hover, button:active {
+    background-color: #0037fe;
+}
+
+input {
+    padding: .5rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 1rem;
+    max-width: 400px;
+    min-width: 200px;
+    flex-wrap: wrap;
+}
+
+section.operators {
+    flex-direction: row;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+span {
+    color: #3e68ff;
+    padding: .5rem 1rem;
+    margin-left: 5px;
+    min-width: 10ch;
+}
+
+.result {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+}
+
+
