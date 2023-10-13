@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 
 /*
@@ -14,24 +14,36 @@ Give you P,r,n, find the monthly mortgage amount....
 */
 const Finance = () => {
 
-function calculatePaymentAmount(principal, interest_rate, numOfPayments) {
-    const monthlyInterestRate = (interest_rate / 100) / 12;
-    const paymentAmount = principal * (monthlyInterestRate * (1 + monthlyInterestRate) ** numOfPayments)/((1 + monthlyInterestRate) ** numOfPayments - 1) 
+let [principal, setPrincipal] = useState(0);
+let [interestRate, setInterestRate] = useState(0);
+let [numOfPayments, setNumOfPayments] = useState(0);
+let [monthlyPaymentAmount, setMonthlyPaymentAmount] = useState(0);
+
+function calculatePaymentAmount(principal, interestRate, numOfPayments) {
+    const pmts = numOfPayments * 12;
+    const monthlyInterestRate = (interestRate / 100) / 12;
+    const paymentAmount = principal * (monthlyInterestRate * (1 + monthlyInterestRate) ** pmts)/((1 + monthlyInterestRate) ** pmts - 1) 
+    console.log(principal, interestRate, pmts)
     return paymentAmount
+  }
 
   // console.log(calculatePaymentAmount(425000, 7.71, 360))
 // let monthlyPaymentAmount = calculatePaymentAmount(principal, interest_rate, numOfPayments)
   return (
     <div>
       <h2>Mortgage Calculator</h2>
-      {/* <form>
+      <form onSubmit={e => {
+        e.preventDefault()
+        let p = calculatePaymentAmount(principal, interestRate, numOfPayments)
+        setMonthlyPaymentAmount(p)
+        }}>
         <div>
           <label>Loan Amount:</label>
           <input
             type="number"
             name="loanAmount"
             value={principal}
-            onChange={this.handleInputChange}
+            onChange={e => {setPrincipal(e.target.value)}}
           />
         </div>
         <div>
@@ -39,8 +51,8 @@ function calculatePaymentAmount(principal, interest_rate, numOfPayments) {
           <input
             type="number"
             name="interestRate"
-            value={interest_rate}
-            onChange={this.handleInputChange}
+            value={interestRate}
+            onChange={e => {setInterestRate(e.target.value)}}
           />
         </div>
         <div>
@@ -49,17 +61,17 @@ function calculatePaymentAmount(principal, interest_rate, numOfPayments) {
             type="number"
             name="loanTerm"
             value={numOfPayments}
-            onChange={this.handleInputChange}
-          />
+            onChange={e => {setNumOfPayments(e.target.value)}}
+            />
         </div>
-        <button type="button" onClick={this.calculatePaymentAmount}>
+        <button>
           Calculate
         </button>
-      </form> */}
-      {/* <div>
+      </form>
+      <div>
         <h3>Monthly Payment:</h3>
-        <p>${calculatePaymentAmount.toFixed(2)}</p>
-      </div> */}
+        <p>${monthlyPaymentAmount.toFixed(2)}</p>
+      </div>
     </div>
   );
 }
