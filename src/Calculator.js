@@ -13,7 +13,7 @@ const Calculator = () => {
   const handleCalculate = () => {
     try {
       setResult(eval(input));
-    } catch (error) {
+    } catch (error) 
       setResult('Error');
     }
   };
